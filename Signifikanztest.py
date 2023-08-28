@@ -17,7 +17,7 @@ diff_uncertain : float = sqrt(pow(val_a_uncertainty, 2) + pow(val_b_uncertainty,
 
 standard_deviation : float = abs(diff - diff_wished) / diff_uncertain # also called t later
 
-#Assuming a normal distribution, the following applies: The probability that a result is
+#Assuming a normal distribution, the following applies: The probability that a result isk
 #is at most 𝑡 standard deviations away from 𝑑_erw is calculated via the normal error integral
 
 probability_in = FILE.open_data("C:\\Users\\Tamwyn\\Documents\\Physik\\AP\\Source\\AP Package\\ProbaGaussIn.dat")
@@ -44,3 +44,18 @@ elif proba_good > 50.0:
 else:
     color : str = ET.bcolors.FAIL
 print("Your result (A) matches with",color, proba_good, ET.bcolors.ENDC , "% the theoretical value (B)!")
+print("\n")
+
+ET.print_category("##### LATEX TEXT #####")
+print("\paragraph{Signifikanztest}$~$\\\\")
+print("Wir führen zunächst einem Signifikanztest, um die Werte mit der Theorie zu vergleichen.")
+print("\\begin{table}[H] \n    \\centering \n    \\begin{tabular}{|c|c|c|c|c|c|}\\hline")
+print("      Werte A & Werte B & Differenz $d$ & $d_{erw}$ & $t$ & Übereinstimmung \\\\\\hline")
+print("      ", val_a,"(", val_a_uncertainty, ") & " , val_b, "(", val_b_uncertainty, ") & ", round(diff,3) , "(", round(diff_uncertain,3), ") & " , diff_wished , " & " , round(standard_deviation, 3) ," & " , round(proba_good, 3),"\%", "\\\\\\hline")
+print("    \\end{tabular}\n    \\caption{Der Signifikanztest }\n    \\label{tab:SignTest_}\n \end{table}")
+
+null_hyp : str = "[NULLHYPOTHESE]."
+if diff_wished == 0:
+     null_hyp = "die Werte übereinstimmen."
+
+print("In das Tabelle \\ref{tab:SignTest_} kann man die wichtigen Größen des Testes lesen. Die Nullhypothese ist, dass", null_hyp ,"Laut der Normalverteilung ist die Wahrscheinlichkeit, dass die Differenz $d$ meinstens $t$ Standartabweichung von der erwartet Differenz $d_{erw}$ liegt, ist mittels der Gauss'sche Fehlerintegral berechnet. Wir erhalten eine Übereinstimmung von", round(proba_good,3), "\% zwischen die Werten.\\newline")
