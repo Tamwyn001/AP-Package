@@ -63,4 +63,4 @@ def print_latex(latex_command: str):
 
 
 print_latex(generate_latex(open_csv(
-   "C:\\Users\\Tamwyn\\Documents\\Physik\\AP\\AP4\\Quantenmodelle\\AusgewerteDaten_QM1\\Rohr_ZehnReso.csv")))
+   "C:\\Users\\Tamwyn\\Documents\\Physik\\FP\\Kernspinresonanz\\Auswertung\\9\\MultiPositive\\Signal.csv")))

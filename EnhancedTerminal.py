@@ -19,21 +19,22 @@ def print_category(name : str)->None :
 def print_title(name:str)->None:
     print("_.- ", bcolors.BOLD, name, bcolors.ENDC,"-._")
     return
+def testColors():
+    print(bcolors.PURPLE, "PURPLE exemple")
 
-print(bcolors.PURPLE, "PURPLE exemple")
+    print(bcolors.OKBLUE, "OKBLUE exemple")
 
-print(bcolors.OKBLUE, "OKBLUE exemple")
+    print(bcolors.OKCYAN, "OKCYAN exemple")
 
-print(bcolors.OKCYAN, "OKCYAN exemple")
+    print(bcolors.OKGREEN, "OKGREEN exemple")
 
-print(bcolors.OKGREEN, "OKGREEN exemple")
+    print(bcolors.WARNING, "WARNING exemple")
 
-print(bcolors.WARNING, "WARNING exemple")
+    print(bcolors.FAIL, "FAIL exemple")
 
-print(bcolors.FAIL, "FAIL exemple")
+    print(bcolors.ENDC, "ENDC exemple")
 
-print(bcolors.ENDC, "ENDC exemple")
+    print(bcolors.BOLD, "BOLD exemple")
 
-print(bcolors.BOLD, "BOLD exemple")
-
-print(bcolors.UNDERLINE, "UNDERLINE exemple")
+    print(bcolors.UNDERLINE, "UNDERLINE exemple")
+    return
