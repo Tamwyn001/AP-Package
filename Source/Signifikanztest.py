@@ -1,7 +1,7 @@
 from math import sqrt
 import ReadWriteFile as FILE
 import EnhancedTerminal as ET
-
+print("\n")
 ET.print_category("#### USER DATAS ####")
 val_a : float = float (input("Experimental value A: "))
 val_a_uncertainty : float = float (input("uncertainty for value A: "))
@@ -20,7 +20,7 @@ standard_deviation : float = abs(diff - diff_wished) / diff_uncertain # also cal
 #Assuming a normal distribution, the following applies: The probability that a result isk
 #is at most 𝑡 standard deviations away from 𝑑_erw is calculated via the normal error integral
 
-probability_in = FILE.open_data("C:\\Users\\Tamwyn\\Documents\\Physik\\AP\\Source\\AP Package\\ProbaGaussIn.dat")
+probability_in = FILE.open_data("C:\\Users\\Tamwyn\\Documents\\Physik\\AP\\Source\\AP Package\\Source\\ProbaGaussIn.dat")
 
 #find the probability with t in [t, probability]
 to_find_t : float = round(standard_deviation, 4)
@@ -32,7 +32,8 @@ for proba_value in probability_in:
     if proba_value[0] == to_find_t:
         result : float = proba_value[1]
         break
-    
+
+print("\n")
 ET.print_category("#### TEST RESULTS ####")
 print("The result is maximum", to_find_t, "standart deviation from wished difference with a probability of", result,".")
 
@@ -46,16 +47,17 @@ else:
 print("Your result (A) matches with",color, proba_good, ET.bcolors.ENDC , "% the theoretical value (B)!")
 print("\n")
 
+
 ET.print_category("##### LATEX TEXT #####")
-print("\paragraph{Signifikanztest}$~$\\\\")
+print(ET.bcolors.OKCYAN,"\paragraph{Signifikanztest}$~$\\\\")
 print("Wir führen zunächst einem Signifikanztest, um die Werte mit der Theorie zu vergleichen.")
 print("\\begin{table}[H] \n    \\centering \n    \\begin{tabular}{|c|c|c|c|c|c|}\\hline")
 print("      Werte A & Werte B & Differenz $d$ & $d_{erw}$ & $t$ & Übereinstimmung \\\\\\hline")
-print("      \\num{", val_a,"(", val_a_uncertainty, ")} & \\num{" , val_b, "(", val_b_uncertainty, ")} & \\num{", round(diff,3) , "(", round(diff_uncertain,3), ")} & \\num{" , diff_wished , "} & \\num{}" , round(standard_deviation, 3) ,"} & \\num{" , round(proba_good, 3),"}\%", "\\\\\\hline")
+print("      \\num{", val_a,"(", val_a_uncertainty, ")} & \\num{" , val_b, "(", val_b_uncertainty, ")} & \\num{", round(diff,3) , "(", round(diff_uncertain,3), ")} & \\num{" , diff_wished , "} & \\num{" , round(standard_deviation, 3) ,"} & \\num{" , round(proba_good, 3),"}\%", "\\\\\\hline")
 print("    \\end{tabular}\n    \\caption{Der Signifikanztest }\n    \\label{tab:SignTest_}\n \end{table}")
 
 null_hyp : str = "[NULLHYPOTHESE]."
 if diff_wished == 0:
      null_hyp = "die Werte übereinstimmen."
 
-print("In das Tabelle \\ref{tab:SignTest_} kann man die wichtigen Größen des Testes lesen. Die Nullhypothese ist, dass", null_hyp ,"Laut der Normalverteilung ist die Wahrscheinlichkeit, dass die Differenz $d$ meinstens $t$ Standartabweichung von der erwartet Differenz $d_{erw}$ liegt, ist mittels der Gauss'sche Fehlerintegral berechnet. Wir erhalten eine Übereinstimmung von", round(proba_good,3), "\% zwischen die Werten.\\newline")
+print("In das Tabelle \\ref{tab:SignTest_} kann man die wichtigen Größen des Testes lesen. Die Nullhypothese ist, dass", null_hyp ,"Laut der Normalverteilung ist die Wahrscheinlichkeit, dass die Differenz $d$ meinstens $t$ Standartabweichung von der erwartet Differenz $d_{erw}$ liegt, ist mittels der Gauss'sche Fehlerintegral berechnet. Wir erhalten eine Übereinstimmung von", round(proba_good,3), "\% zwischen die Werten.\\newline", ET.bcolors.ENDC)
