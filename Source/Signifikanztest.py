@@ -53,7 +53,7 @@ print(ET.bcolors.OKCYAN,"\paragraph{Signifikanztest}$~$\\\\")
 print("Wir führen zunächst einem Signifikanztest, um die Werte mit der Theorie zu vergleichen.")
 print("\\begin{table}[H] \n    \\centering \n    \\begin{tabular}{|c|c|c|c|c|c|}\\hline")
 print("      Werte A & Werte B & Differenz $d$ & $d_{erw}$ & $t$ & Übereinstimmung \\\\\\hline")
-print("      \\num{", val_a,"(", val_a_uncertainty, ")} & \\num{" , val_b, "(", val_b_uncertainty, ")} & \\num{", round(diff,3) , "(", round(diff_uncertain,3), ")} & \\num{" , diff_wished , "} & \\num{" , round(standard_deviation, 3) ,"} & \\num{" , round(proba_good, 3),"}\%", "\\\\\\hline")
+print("      \\num{", val_a,"(", val_a_uncertainty, ")} & \\num{" , val_b, "(", val_b_uncertainty, ")} & \\num{", diff , "(", diff_uncertain, ")} & \\num{" , diff_wished , "} & \\num{" , standard_deviation ,"} & \\num{" , round(proba_good, 3),"}\%", "\\\\\\hline")
 print("    \\end{tabular}\n    \\caption{Der Signifikanztest }\n    \\label{tab:SignTest_}\n \end{table}")
 
 null_hyp : str = "[NULLHYPOTHESE]."
